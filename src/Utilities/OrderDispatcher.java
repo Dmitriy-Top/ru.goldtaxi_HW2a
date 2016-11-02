@@ -3,6 +3,8 @@ package Utilities;
 import Entity.Car;
 import Entity.Order;
 
+import java.util.List;
+
 /**
  * Created by admin on 02.11.2016.
  */
@@ -17,5 +19,6 @@ public class OrderDispatcher {
         }
 
     }
+
     private OrderDispatcher(){}
 }

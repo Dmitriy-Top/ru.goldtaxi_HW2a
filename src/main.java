@@ -12,10 +12,7 @@ public class main {
         new CarWorkEmulator(carArrayList);
         while (true) {
             Order order = OrderReader.orderRead();
-            Car suitCar = CarSearch.searchFreeCar(carArrayList, order);
-            String result = OrderDispatcher.reservCarToOrder(suitCar, order);
-            ClientsMassage.showMassage(result);
-
+            new OrderWaiter(order, carArrayList);
         }
     }
 }
