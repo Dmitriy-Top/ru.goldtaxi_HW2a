@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class OrderWaiter implements Runnable {
     private Order order;
-    private List<Car> carList;
+    private volatile List<Car> carList;
 
 
     public OrderWaiter(Order order, List<Car> carList) {
@@ -24,7 +24,7 @@ public class OrderWaiter implements Runnable {
         boolean isFind = false;
         boolean waitingTextIsShow = false;
         while (!isFind) {
-            Car suitCar = CarSearch.searchFreeCar(carList, order);
+                Car suitCar = CarSearch.searchFreeCar(carList, order);
             String result = OrderDispatcher.reservCarToOrder(suitCar, order);
             if (suitCar != null){
                 ClientsMassage.showMassage(result);
