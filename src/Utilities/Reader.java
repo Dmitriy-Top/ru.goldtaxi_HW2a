@@ -14,4 +14,7 @@ public class Reader {
         }
         return instance;
     }
+
+    private Reader() {
+    }
 }

@@ -3,26 +3,21 @@ package Utilities;
 import Entity.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by дима on 30.10.2016.
  */
 public class CarSearch {
-    public static void searchFreeCar(ArrayList<Car> carArrayList, Order order) {
-        Car reservedCar = null;
+    public static Car searchFreeCar(List<Car> carArrayList, Order order) {
+        Car suitCar = null;
         for (Car car : carArrayList) {
             if (CarSearch.compareOrderToCar(car, order)) {
-                reservedCar = car;
-                reservedCar.setCarStatus(Car.TYPE_OF_STATUS_RESERVED);
-                order.setCarReserver(reservedCar);
+                suitCar = car;
                 break;
             }
         }
-        if (reservedCar != null) {
-            System.out.println("На ваш заказ назначена: "+reservedCar);
-        } else {
-            System.out.println("В данный момент нет подходящего для вас автомобиля, заявка ожидает подходящего, освободившегося автомобиля.");
-        }
+        return suitCar;
 
 
     }

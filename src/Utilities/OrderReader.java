@@ -17,8 +17,8 @@ public class OrderReader {
             if (checkOrderFieldsIsCorrect(orderFields)) {
                 order = new Order(orderFields[0], orderFields[1], Boolean.parseBoolean(orderFields[2]), Boolean.parseBoolean(orderFields[3]), Integer.parseInt(orderFields[4]));
             } else {
-                System.out.println("Заявка не корректна");
-                System.out.println("Пример заявки: Ленина 9|Мира 13|true|false|0");
+                ClientsMassage.showError("Заявка не корректна");
+                ClientsMassage.showMassage("Пример заявки: Ленина 9|Мира 13|true|false|0");
             }
             if (order != null) isCorrectOrder = true;
         }

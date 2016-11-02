@@ -1,18 +1,20 @@
 import Entity.*;
 import Utilities.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by дима on 30.10.2016.
  */
 public class main {
     public static void main(String[] args) {
-        ArrayList<Car> carArrayList = Initialization.initCarArray();
-
+        List<Car> carArrayList = Collections.synchronizedList(Initialization.initCarArray());
+        new CarWorkEmulator(carArrayList);
         while (true) {
             Order order = OrderReader.orderRead();
-            CarSearch.searchFreeCar(carArrayList, order);
+            Car suitCar = CarSearch.searchFreeCar(carArrayList, order);
+            String result = OrderDispatcher.reservCarToOrder(suitCar, order);
+            ClientsMassage.showMassage(result);
 
         }
     }

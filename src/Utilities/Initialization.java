@@ -23,4 +23,5 @@ public class Initialization {
         carArray.add(new Car("Skoda Octavia", new Driver("Васечкин Дмитрий Александрович", "+79785458754"), "EK 777 K 163", true, false, Car.TYPE_OF_CLASS_BUSYNESS, Car.TYPE_OF_STATUS_FREE));
         return carArray;
     }
+
 }
